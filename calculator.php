@@ -67,7 +67,7 @@
         <button class="button" onclick="appendToDisplay('1')">1</button>
         <button class="button" onclick="appendToDisplay('2')">2</button>
         <button class="button" onclick="appendToDisplay('3')">3</button>
-        <button class="button" onclick="appendToDisplay('*')">*</button>
+        <button class="button" onclick="appendToDisplay('x')">x</button>
         <button class="button" onclick="appendToDisplay('0')">0</button>
         <button class="button" onclick="clearDisplay()">C</button>
         <button class="button" onclick="calculate()">=</button>
@@ -91,8 +91,9 @@
 
     function calculate() {
         var display = document.getElementById("display");
+        var expression = display.innerText.replace(/x/g, "*");
         try {
-            display.innerText = eval(display.innerText);
+            display.innerText = eval(expression);
         } catch (error) {
             display.innerText = 'Error';
         }
